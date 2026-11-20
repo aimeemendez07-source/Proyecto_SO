@@ -11,6 +11,7 @@ endif()
 
 add_executable(simulador 
     src/main.cpp
+    src/Procesos.cpp
 )
 
 target_include_directories(simulador PRIVATE include)
