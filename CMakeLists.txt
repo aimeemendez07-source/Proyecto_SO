@@ -1,22 +1,16 @@
 cmake_minimum_required(VERSION 3.21)
+project(SimuladorSO LANGUAGES CXX)
 
-# Nombre del proyecto y lenguaje (C en este caso)
-project(SimuladorSO LANGUAGES C)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Configurar el estándar de C (C11 es moderno y seguro)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-
-# Configuración por defecto en Debug
+# Configura el modo Debug por defecto si no se especifica
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Tipo de compilación" FORCE)
 endif()
 
-# Aquí agregarás todos los archivos .c que vayas creando
-# Por ahora solo tienes el main.c en la carpeta src
 add_executable(simulador 
-    src/main.c
+    src/main.cpp
 )
 
-# Para que puedas usar #include "tus_archivos.h" desde la carpeta include
 target_include_directories(simulador PRIVATE include)
