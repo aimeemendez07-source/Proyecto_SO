@@ -11,6 +11,6 @@ struct Procesos{
 
 int main() {
     srand(time(NULL));
-    printf("--- SIMULADOR DE S.O. ---\n");
+    printf("SIMULADOR DE S.O.\n");
     return 0;
 }
