@@ -1,8 +1,7 @@
-
 #pragma once
 #include <vector>
 #include <iostream>
-#include "Proceso.h"
+#include "Procesos.h"
 
 class RoundRobin {
 private:

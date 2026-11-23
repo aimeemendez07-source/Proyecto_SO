@@ -1,8 +1,7 @@
-//Buddy System
 #pragma once
 #include <vector>
 #include <iostream>
-#include "Proceso.h"
+#include "Procesos.h"
 using namespace std;
 
 // Si p es NULL esta libre
