@@ -88,12 +88,17 @@ public:
     // Procesos: [id,tam,restante]  Libres: [0,tam,0]
     void imprimir() const {
         for(int i = 0; i < (int)bloques.size(); i++){
-            if(bloques[i].p != NULL){
+            bool esIzq=(bloques[i].inicio % (2 * bloques[i].tam)==0);
+            char lado = esIzq ? 'I' : 'D';
+            cout<< lado <<":";
+            if(bloques[i].p !=NULL){
                 bloques[i].p->imprimir();
+                
             }
             else {
                 cout << "[0," << bloques[i].tam << ",0]";
             }
+            cout<< " ";
         }
         cout << "\n";
     }
