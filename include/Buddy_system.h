@@ -85,22 +85,26 @@ public:
         }
     }
 
-    // Procesos: [id,tam,restante]  Libres: [0,tam,0]
+// Procesos: [id,tam,restante]  Libres: [0,tam,0] || Tamaño del bloque que ocupa {tam}   
     void imprimir() const {
+        bool yaMarca = false;   // el # se muestra solo una vez
         for(int i = 0; i < (int)bloques.size(); i++){
-            bool esIzq=(bloques[i].inicio % (2 * bloques[i].tam)==0);
-            char lado = esIzq ? 'I' : 'D';
-            cout<< lado <<":";
-            if(bloques[i].p !=NULL){
+            bool izq = (bloques[i].inicio % (2 * bloques[i].tam) == 0);
+            if(i > 0) cout << " ";
+            
+            if(!izq && !yaMarca){
+                cout << "#";
+                yaMarca = true;
+            }
+
+            if(bloques[i].p != NULL){
                 bloques[i].p->imprimir();
-                
+                cout << "{" << bloques[i].tam << "}";   // tamaño del bloque que ocupa
             }
             else {
                 cout << "[0," << bloques[i].tam << ",0]";
             }
-            cout<< " ";
         }
         cout << "\n";
     }
-    
 };
