@@ -79,6 +79,18 @@ int main(){
         ciclo++;
         cout << "\n========== CICLO " << ciclo << " ==========\n";
 
+        // avisar cuando hay 3 o mas huecos donde cabe el proceso entrante
+        if(alg == 1){
+            int huecos = ajuste.contarHuecos(pendiente->getTam());
+            if(huecos >= 3){
+                cout << "AVISO: hay " << huecos << " huecos donde cabe el proceso ";
+                pendiente->imprimir();
+                cout << ": ";
+                ajuste.imprimirHuecos(pendiente->getTam());
+                cout << "\nPrimer ajuste lo coloca en el primero\n";
+            }
+        }
+
         // Entrada de proceso a memoria
         if(asignar(alg, ajuste, buddy, pendiente)){
             llegadas[pendiente->getID()] = reloj;

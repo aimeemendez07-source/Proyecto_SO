@@ -68,6 +68,24 @@ public:
         return cambio;
     }
 
+    // Cuenta los huecos donde cabe un proceso de tamano tam
+    int contarHuecos(int tam) const {
+        int n = 0;
+        for(int i = 0; i < (int)bloques.size(); i++){
+            if(bloques[i].p == NULL && bloques[i].tam >= tam) n++;
+        }
+        return n;
+    }
+
+    // Imprime los huecos donde cabe un proceso de tamano tam
+    void imprimirHuecos(int tam) const {
+        for(int i = 0; i < (int)bloques.size(); i++){
+            if(bloques[i].p == NULL && bloques[i].tam >= tam){
+                cout << "[0," << bloques[i].tam << ",0] ";
+            }
+        }
+    }
+
     void imprimir() const {
         for(int i = 0; i < (int)bloques.size(); i++){
             if(bloques[i].p != NULL) bloques[i].p->imprimir();

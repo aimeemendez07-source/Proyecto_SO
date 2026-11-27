@@ -85,21 +85,17 @@ public:
         }
     }
 
-// Procesos: [id,tam,restante]  Libres: [0,tam,0] || Tamaño del bloque que ocupa {tam}   
+    // Procesos: [id,tam,restante]  Libres: [0,tam,0] || Tamaño del bloque que ocupa {tam}   
     void imprimir() const {
-        bool yaMarca = false;   // el # se muestra solo una vez
         for(int i = 0; i < (int)bloques.size(); i++){
-            bool izq = (bloques[i].inicio % (2 * bloques[i].tam) == 0);
             if(i > 0) cout << " ";
-            
-            if(!izq && !yaMarca){
-                cout << "#";
-                yaMarca = true;
-            }
+
+            // # primer split
+            if(bloques[i].inicio == total / 2) cout << "#";
 
             if(bloques[i].p != NULL){
                 bloques[i].p->imprimir();
-                cout << "{" << bloques[i].tam << "}";   // tamaño del bloque que ocupa
+                cout << "{" << bloques[i].tam << "}";
             }
             else {
                 cout << "[0," << bloques[i].tam << ",0]";
